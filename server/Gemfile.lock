@@ -171,6 +171,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbs (2.3.0)
+    rbs_rails (0.11.0)
+      parser
+      rbs (>= 1)
     redis (4.6.0)
     regexp_parser (2.2.1)
     reline (0.3.1)
@@ -207,6 +210,8 @@ GEM
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     sqlite3 (1.4.2)
     steep (0.51.0)
       activesupport (>= 5.1)
@@ -243,9 +248,11 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.2, >= 7.0.2.3)
+  rbs_rails
   redis (~> 4.0)
   rspec-rails
   rubocop
+  shoulda-matchers
   sqlite3 (~> 1.4)
   steep
   tzinfo-data
