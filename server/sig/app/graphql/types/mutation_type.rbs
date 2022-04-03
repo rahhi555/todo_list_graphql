@@ -1,0 +1,5 @@
+module Types
+  class MutationType < Types::BaseObject
+    def test_field: () -> "Hello World"
+  end
+end

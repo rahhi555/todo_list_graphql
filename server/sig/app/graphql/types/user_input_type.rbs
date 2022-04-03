@@ -1,0 +1,6 @@
+module Types
+  class UserInputType < Types::BaseInputObject
+    type user_input = { email: String, password: String, password_confirmation: String }
+    def to_hash: () -> Types::UserInputType::user_input
+  end
+end
