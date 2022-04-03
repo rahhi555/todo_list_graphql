@@ -1,0 +1,3 @@
+class User < ApplicationRecord
+  VALID_EMAIL_REGEX: ::Regexp
+end
