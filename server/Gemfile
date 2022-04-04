@@ -8,9 +8,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'graphql'
 gem 'image_processing', '~> 1.2'
+gem 'jwt'
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
+gem 'rails-i18n'
 gem 'redis', '~> 4.0'
 gem 'sqlite3', '~> 1.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -22,6 +24,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'rbs_rails'
   gem 'rubocop'
   gem 'steep'

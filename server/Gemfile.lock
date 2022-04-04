@@ -67,6 +67,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
+    awesome_print (1.9.2)
     bcrypt (3.1.17)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
@@ -96,6 +97,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    jwt (2.3.0)
     language_server-protocol (3.16.0.3)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -158,6 +160,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-i18n (7.0.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.0.2.3)
       actionpack (= 7.0.2.3)
       activesupport (= 7.0.2.3)
@@ -239,15 +244,18 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  awesome_print
   bcrypt (~> 3.1.7)
   bootsnap
   debug
   factory_bot_rails
   graphql
   image_processing (~> 1.2)
+  jwt
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.2, >= 7.0.2.3)
+  rails-i18n
   rbs_rails
   redis (~> 4.0)
   rspec-rails

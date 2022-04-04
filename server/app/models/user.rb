@@ -8,4 +8,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  def create_jwt_token
+    JWT.encode({ id: }, Rails.application.credentials.secret_key_base)
+  end
 end

@@ -1,5 +1,5 @@
 module Mutations
   class UserCreate < BaseMutation
-    def resolve: (user_input: Types::UserInputType user_input) -> { user: ::User }
+    def resolve: (user_input: Types::UserInputType user_input) -> { user: ::User, token: ::String }
   end
 end

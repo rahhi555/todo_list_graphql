@@ -114,6 +114,14 @@ gems:
     revision: d90ea20ab909704fcab18d8b20720664ebcad62b
     remote: https://github.com/ruby/gem_rbs_collection.git
     repo_dir: gems
+- name: bcrypt
+  version: '3.1'
+  source:
+    type: git
+    name: ruby/gem_rbs_collection
+    revision: d90ea20ab909704fcab18d8b20720664ebcad62b
+    remote: https://github.com/ruby/gem_rbs_collection.git
+    repo_dir: gems
 - name: digest
   version: '0'
   source:
@@ -186,6 +194,10 @@ gems:
     revision: d90ea20ab909704fcab18d8b20720664ebcad62b
     remote: https://github.com/ruby/gem_rbs_collection.git
     repo_dir: gems
+- name: rbs_rails
+  version: 0.11.0
+  source:
+    type: rubygems
 - name: redis
   version: '4.2'
   source:
@@ -203,6 +215,14 @@ gems:
   source:
     type: stdlib
 - name: uri
+  version: '0'
+  source:
+    type: stdlib
+- name: openssl
+  version: '0'
+  source:
+    type: stdlib
+- name: socket
   version: '0'
   source:
     type: stdlib
