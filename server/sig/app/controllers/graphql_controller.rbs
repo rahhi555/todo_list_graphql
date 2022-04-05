@@ -1,0 +1,14 @@
+class GraphqlController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  def execute: () -> void
+
+  private
+
+  # Handle variables in form data, JSON body, or a blank value
+  def prepare_variables: (untyped variables_param) -> untyped
+
+  def handle_error_in_development: (untyped e) -> untyped
+
+  def current_user: () -> (User | nil)
+end

@@ -6,7 +6,16 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    field :users, [UserType], description: 'fetch all users'
-    def users = User.all
+    field :current_user, UserType, description: '現在のユーザーを取得する'
+    def current_user
+      require_authorized
+      context[:current_user]
+    end
+
+    private
+
+    def require_authorized
+      raise GraphQL::ExecutionError, I18n.t('graphql.error.require_login') unless context[:current_user].present?
+    end
   end
 end

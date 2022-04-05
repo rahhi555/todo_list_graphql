@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class GraphqlController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
   # If accessing from outside this domain, nullify the session
   # This allows for outside API access while preventing CSRF attacks,
   # but you'll have to authenticate your user separately
@@ -10,10 +11,7 @@ class GraphqlController < ApplicationController
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
-    }
+    context = { current_user: }
     result = ServerSchema.execute(query, variables:, context:, operation_name:)
     render json: result
   rescue StandardError => e
@@ -49,5 +47,12 @@ class GraphqlController < ApplicationController
     logger.error e.backtrace.join("\n")
 
     render json: { errors: [{ message: e.message, backtrace: e.backtrace }], data: {} }, status: 500
+  end
+
+  def current_user
+    authenticate_with_http_token do |token|
+      id = JWT.decode(token, Rails.application.credentials.secret_key_base)[0]['id']
+      User.find_by(id:)
+    end
   end
 end

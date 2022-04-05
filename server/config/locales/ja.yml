@@ -5,6 +5,7 @@ ja:
         create: "%{item}を作成します"
     error:
       created: "%{item}の作成に失敗しました"
+      require_login: 'ログインしていません'
   activerecord:
     models:
       user: 'ユーザー'

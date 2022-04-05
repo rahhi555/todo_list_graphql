@@ -5,6 +5,10 @@ module Types
 
     include GraphQL::Types::Relay::HasNodesField
 
-    def test_field: () -> "Hello World!"
+    def current_user: () -> User
+
+    private
+
+    def require_authorized: () -> void
   end
 end
