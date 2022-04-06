@@ -6,6 +6,9 @@ ja:
     error:
       created: "%{item}の作成に失敗しました"
       require_login: 'ログインしていません'
+      user:
+        not_find_user: 'ユーザーが見つかりませんでした'
+        not_match_password: 'パスワードが一致しませんでした'
   activerecord:
     models:
       user: 'ユーザー'

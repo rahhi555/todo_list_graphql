@@ -20,5 +20,13 @@ RSpec.describe 'User関連のQuery', type: :request do
       expect(current_user['id']).to eq user.id.to_s
       expect(current_user['email']).to eq user.email
     end
+
+    it 'ヘッダーにトークンが含まれていない場合、エラーが返ってくること' do
+      post graphql_path, params: { query: }
+      current_user = response.parsed_body['data']['currentUser']
+      message = response.parsed_body['errors'][0]['message']
+      expect(current_user).to be_nil
+      expect(message).to eq I18n.t('graphql.error.require_login')
+    end
   end
 end

@@ -1,0 +1,5 @@
+module Mutations
+  class Login < BaseMutation
+    def resolve: (email: String email, password: String password) -> { user: ::User, token: String }
+  end
+end
