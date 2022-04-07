@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { useUserCreateMutation } from "@/generated/graphql";
+import { useUserStore } from "@/stores/currentUser";
 
 const signupParams = reactive({
   email: "",
@@ -30,6 +31,9 @@ const { mutate: userCreate } = useUserCreateMutation(() => ({
     email: signupParams.email,
     password: signupParams.password,
     passwordConfirmation: signupParams.passwordConfirmation,
-  }
-}))
+  },
+  update: (_, { data }) => {
+    useUserStore().login(data!);
+  },
+}));
 </script>
