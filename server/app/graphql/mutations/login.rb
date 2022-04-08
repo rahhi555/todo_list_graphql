@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class Login < BaseMutation
     field :user, Types::UserType, null: false
