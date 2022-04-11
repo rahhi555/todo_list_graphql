@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { User, UserCreateMutation } from "../generated/graphql";
+import type { User, UserCreateMutation, LoginMutation } from "../generated/graphql";
 
 type OptionalUser = { [K in keyof User]?: User[K] };
 
@@ -20,10 +20,13 @@ export const useUserStore = defineStore("user", {
   },
 
   actions: {
-    login(data: UserCreateMutation) {
+    login(data: UserCreateMutation | LoginMutation) {
       if ("userCreate" in data) {
         sessionStorage.setItem("todo-user", data.userCreate!.token);
         this.setUser(data.userCreate!.user);
+      } else if ("login" in data) {
+        sessionStorage.setItem("todo-user", data.login!.token);
+        this.setUser(data.login!.user);
       }
     },
 

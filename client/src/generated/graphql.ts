@@ -107,6 +107,20 @@ export type UserCreateMutation = {
   } | null;
 };
 
+export type LoginMutationVariables = Exact<{
+  email: Scalars["String"];
+  password: Scalars["String"];
+}>;
+
+export type LoginMutation = {
+  __typename?: "Mutation";
+  login?: {
+    __typename?: "LoginPayload";
+    token: string;
+    user: { __typename?: "User"; id: string; email: string };
+  } | null;
+};
+
 export const UserCreateDocument = gql`
   mutation userCreate(
     $email: String!
@@ -173,3 +187,53 @@ export type UserCreateMutationCompositionFunctionResult =
     UserCreateMutation,
     UserCreateMutationVariables
   >;
+export const LoginDocument = gql`
+  mutation login($email: String!, $password: String!) {
+    login(input: { email: $email, password: $password }) {
+      token
+      user {
+        id
+        email
+      }
+    }
+  }
+`;
+
+/**
+ * __useLoginMutation__
+ *
+ * To run a mutation, you first call `useLoginMutation` within a Vue component and pass it any options that fit your needs.
+ * When your component renders, `useLoginMutation` returns an object that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - Several other properties: https://v4.apollo.vuejs.org/api/use-mutation.html#return
+ *
+ * @param options that will be passed into the mutation, supported options are listed on: https://v4.apollo.vuejs.org/guide-composable/mutation.html#options;
+ *
+ * @example
+ * const { mutate, loading, error, onDone } = useLoginMutation({
+ *   variables: {
+ *     email: // value for 'email'
+ *     password: // value for 'password'
+ *   },
+ * });
+ */
+export function useLoginMutation(
+  options:
+    | VueApolloComposable.UseMutationOptions<
+        LoginMutation,
+        LoginMutationVariables
+      >
+    | ReactiveFunction<
+        VueApolloComposable.UseMutationOptions<
+          LoginMutation,
+          LoginMutationVariables
+        >
+      >
+) {
+  return VueApolloComposable.useMutation<LoginMutation, LoginMutationVariables>(
+    LoginDocument,
+    options
+  );
+}
+export type LoginMutationCompositionFunctionResult =
+  VueApolloComposable.UseMutationReturn<LoginMutation, LoginMutationVariables>;
