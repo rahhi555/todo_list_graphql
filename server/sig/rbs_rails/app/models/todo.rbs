@@ -1,5 +1,5 @@
-class User < ::ApplicationRecord
-  extend _ActiveRecord_Relation_ClassMethods[User, ActiveRecord_Relation, Integer]
+class Todo < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[Todo, ActiveRecord_Relation, Integer]
 
   module GeneratedAttributeMethods
     def id: () -> Integer
@@ -38,77 +38,113 @@ class User < ::ApplicationRecord
 
     def clear_id_change: () -> void
 
-    def email: () -> String
+    def title: () -> String
 
-    def email=: (String) -> String
+    def title=: (String) -> String
 
-    def email?: () -> bool
+    def title?: () -> bool
 
-    def email_changed?: () -> bool
+    def title_changed?: () -> bool
 
-    def email_change: () -> [ String?, String? ]
+    def title_change: () -> [ String?, String? ]
 
-    def email_will_change!: () -> void
+    def title_will_change!: () -> void
 
-    def email_was: () -> String?
+    def title_was: () -> String?
 
-    def email_previously_changed?: () -> bool
+    def title_previously_changed?: () -> bool
 
-    def email_previous_change: () -> Array[String?]?
+    def title_previous_change: () -> Array[String?]?
 
-    def email_previously_was: () -> String?
+    def title_previously_was: () -> String?
 
-    def email_before_last_save: () -> String?
+    def title_before_last_save: () -> String?
 
-    def email_change_to_be_saved: () -> Array[String?]?
+    def title_change_to_be_saved: () -> Array[String?]?
 
-    def email_in_database: () -> String?
+    def title_in_database: () -> String?
 
-    def saved_change_to_email: () -> Array[String?]?
+    def saved_change_to_title: () -> Array[String?]?
 
-    def saved_change_to_email?: () -> bool
+    def saved_change_to_title?: () -> bool
 
-    def will_save_change_to_email?: () -> bool
+    def will_save_change_to_title?: () -> bool
 
-    def restore_email!: () -> void
+    def restore_title!: () -> void
 
-    def clear_email_change: () -> void
+    def clear_title_change: () -> void
 
-    def password_digest: () -> String
+    def status: () -> String
 
-    def password_digest=: (String) -> String
+    def status=: (String) -> String
 
-    def password_digest?: () -> bool
+    def status?: () -> bool
 
-    def password_digest_changed?: () -> bool
+    def status_changed?: () -> bool
 
-    def password_digest_change: () -> [ String?, String? ]
+    def status_change: () -> [ String?, String? ]
 
-    def password_digest_will_change!: () -> void
+    def status_will_change!: () -> void
 
-    def password_digest_was: () -> String?
+    def status_was: () -> String?
 
-    def password_digest_previously_changed?: () -> bool
+    def status_previously_changed?: () -> bool
 
-    def password_digest_previous_change: () -> Array[String?]?
+    def status_previous_change: () -> Array[String?]?
 
-    def password_digest_previously_was: () -> String?
+    def status_previously_was: () -> String?
 
-    def password_digest_before_last_save: () -> String?
+    def status_before_last_save: () -> String?
 
-    def password_digest_change_to_be_saved: () -> Array[String?]?
+    def status_change_to_be_saved: () -> Array[String?]?
 
-    def password_digest_in_database: () -> String?
+    def status_in_database: () -> String?
 
-    def saved_change_to_password_digest: () -> Array[String?]?
+    def saved_change_to_status: () -> Array[String?]?
 
-    def saved_change_to_password_digest?: () -> bool
+    def saved_change_to_status?: () -> bool
 
-    def will_save_change_to_password_digest?: () -> bool
+    def will_save_change_to_status?: () -> bool
 
-    def restore_password_digest!: () -> void
+    def restore_status!: () -> void
 
-    def clear_password_digest_change: () -> void
+    def clear_status_change: () -> void
+
+    def user_id: () -> Integer?
+
+    def user_id=: (Integer?) -> Integer?
+
+    def user_id?: () -> bool
+
+    def user_id_changed?: () -> bool
+
+    def user_id_change: () -> [ Integer?, Integer? ]
+
+    def user_id_will_change!: () -> void
+
+    def user_id_was: () -> Integer?
+
+    def user_id_previously_changed?: () -> bool
+
+    def user_id_previous_change: () -> Array[Integer?]?
+
+    def user_id_previously_was: () -> Integer?
+
+    def user_id_before_last_save: () -> Integer?
+
+    def user_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def user_id_in_database: () -> Integer?
+
+    def saved_change_to_user_id: () -> Array[Integer?]?
+
+    def saved_change_to_user_id?: () -> bool
+
+    def will_save_change_to_user_id?: () -> bool
+
+    def restore_user_id!: () -> void
+
+    def clear_user_id_change: () -> void
 
     def created_at: () -> ActiveSupport::TimeWithZone
 
@@ -183,38 +219,43 @@ class User < ::ApplicationRecord
     def clear_updated_at_change: () -> void
   end
   include GeneratedAttributeMethods
-  def todos: () -> Todo::ActiveRecord_Associations_CollectionProxy
-  def todos=: (Todo::ActiveRecord_Associations_CollectionProxy | Array[Todo]) -> (Todo::ActiveRecord_Associations_CollectionProxy | Array[Todo])
-  def todo_ids: () -> Array[Integer]
-  def todo_ids=: (Array[Integer]) -> Array[Integer]
 
+  def user: () -> User
+  def user=: (User?) -> User?
+  def reload_user: () -> User?
+  def build_user: (untyped) -> User
+  def create_user: (untyped) -> User
+  def create_user!: (untyped) -> User
   module GeneratedAssociationMethods
   end
   include GeneratedAssociationMethods
-  module ActiveModel_SecurePassword_InstanceMethodsOnActivation_password
-    attr_reader password: String?
 
-    def password=: (String) -> String
-
-    def password_confirmation=: (String) -> String
-
-    def authenticate_password: (String) -> (User | false)
-
-    alias authenticate authenticate_password
-  end
-  include ActiveModel_SecurePassword_InstanceMethodsOnActivation_password
+  def todo!: () -> bool
+  def todo?: () -> bool
+  def doing!: () -> bool
+  def doing?: () -> bool
+  def done!: () -> bool
+  def done?: () -> bool
+  def self.todo: () -> ActiveRecord_Relation
+  def self.doing: () -> ActiveRecord_Relation
+  def self.done: () -> ActiveRecord_Relation
 
   module GeneratedRelationMethods
+    def todo: () -> ActiveRecord_Relation
+
+    def doing: () -> ActiveRecord_Relation
+
+    def done: () -> ActiveRecord_Relation
   end
 
   class ActiveRecord_Relation < ::ActiveRecord::Relation
     include GeneratedRelationMethods
-    include _ActiveRecord_Relation[User, Integer]
-    include Enumerable[User]
+    include _ActiveRecord_Relation[Todo, Integer]
+    include Enumerable[Todo]
   end
 
   class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
     include GeneratedRelationMethods
-    include _ActiveRecord_Relation[User, Integer]
+    include _ActiveRecord_Relation[Todo, Integer]
   end
 end
