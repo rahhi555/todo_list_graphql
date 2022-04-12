@@ -17,6 +17,8 @@ const loginParams = reactive({
   password: "",
 });
 
+const router = useRouter();
+
 const { mutate: login } = useLoginMutation(() => ({
   variables: {
     email: loginParams.email,
@@ -24,7 +26,6 @@ const { mutate: login } = useLoginMutation(() => ({
   },
   update: (_, { data }) => {
     useUserStore().login(data!);
-    const router = useRouter();    
     router.push({ path: "/todos" });
   },
 }));
